@@ -61,7 +61,7 @@ def _v1_spec():
                 'url': 'http://www.apache.org/licenses/LICENSE-2.0.html'
             }
         },
-        'host': 'syntaxnet.askplatyp.us',
+        'host': 'tensor.westus.cloudapp.azure.com:8888',
         'basePath': '/v1',
         'paths': {
             '/parsey-universal-full': {
@@ -84,7 +84,8 @@ def _v1_spec():
                             'description': 'The text language.',
                             'required': True,
                             'type': 'string',
-                            'enum': sorted(language_code_to_model_name.keys())
+                            'enum': ['en','zh']
+                            # sorted(language_code_to_model_name.keys())
                         }
                     ],
                     'consumes': [
@@ -110,4 +111,4 @@ def _v1_spec():
 app.register_blueprint(build_static_blueprint('swaggerui', __name__))
 
 if __name__ == '__main__':
-    app.run(port=7000)
+    app.run(debug=True, host='0.0.0.0',port=8888)

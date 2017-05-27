@@ -1,0 +1,11 @@
+FROM 3hdeng/dragnn:2.7
+#to build 3hdeng/syntax-api:2.7
+RUN  pip install -U Flask &&  echo "Flask installed"
+#RUN  pip install -U flask-swagger &&  echo "flask-swagger installed"
+#RUN  pip install flask-swagger-ui &&  echo "flask-swagger-ui installed"
+RUN  pip install flask-swaggerui &&  echo "flask-swaggerui installed"
+
+#=== install syntaxnet-wrapper
+# COPY syntaxnet-wrapper /opt/syntaxnet-wrapper
+# RUN cd /opt/syntaxnet-wrapper && python setup.py install
+CMD []
