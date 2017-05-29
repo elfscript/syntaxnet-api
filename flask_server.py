@@ -74,7 +74,8 @@ def _v1_spec():
                 'url': 'http://www.apache.org/licenses/LICENSE-2.0.html'
             }
         },
-        'host': 'itek-gpu1.eastus.cloudapp.azure.com:8888',
+        'host': 'tensor.westus.cloudapp.azure.com:8888',
+#'itek-gpu1.eastus.cloudapp.azure.com:8888',
 #'tensor.westus.cloudapp.azure.com:8888',
         'basePath': '/v1',
         'paths': {
