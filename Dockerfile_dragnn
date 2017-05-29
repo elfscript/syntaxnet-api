@@ -1,0 +1,18 @@
+# to build 3hdeng/syntax-api:dragnn
+FROM 3hdeng/dragnn:2.7
+
+ENV PYTHONIOENCODING UTF-8
+
+RUN  pip install -U Flask &&  echo "Flask installed"
+RUN  pip install flask-swaggerui &&  echo "flask-swaggerui installed"
+
+COPY syntaxnet_wrapper /opt/syntaxnet_wrapper
+RUN cd /opt/syntaxnet_wrapper && python setup.py install
+
+CMD []
+
+
+#=====Dockerfile_dragnn
+#dragnn, PythonPaths, bazel-bin
+#need to perform bazel build :tutorial_1
+#$ /opt/tensorflow/syntaxnet/examples/dragnn# bazel build :tutorial_1

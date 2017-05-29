@@ -1,5 +1,5 @@
 #!/bin/bash
-ver=2.7
+ver=dragnn
 if [[ "$#" == "1" ]]; then
   ver=$1
 fi
