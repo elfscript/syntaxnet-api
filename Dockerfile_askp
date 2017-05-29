@@ -1,0 +1,11 @@
+FROM gliacloud/syntaxnet
+
+#ENV PORT 7000
+#EXPOSE $PORT
+
+ENV PYTHONIOENCODING UTF-8
+
+RUN  pip install -U Flask &&  echo "Flask installed"
+RUN  pip install flask-swaggerui &&  echo "flask-swaggerui installed"
+
+CMD []

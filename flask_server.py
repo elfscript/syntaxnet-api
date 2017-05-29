@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Copyright 2016-2017 Thomas Pellissier Tanon All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,9 +40,20 @@ def _v1():
 @app.route('/v1/parsey-universal-full', methods=['POST'])
 def _parsey_universal_full_handler():
     text = request.get_data()
+    #print(type(text))
+    if type(text) is str :
+       print("str to be convert to unicode") 
+       text= text.decode('utf-8')
+    elif type(text) is unicode:
+       print("already unicode")  
+    else:
+       raise ValueError(type(text)+ "not acceptable")
+          
     language_code = request.headers.get('Content-Language', 'en').lower()
+    print(language_code)
+
     try:
-        conllu = parser[language_code].query(text, returnRaw=True)
+        conllu = parser[language_code].query(text, returnRaw=True)       
         if conllu is None:
             raise InternalServerError('Bad SyntaxNet output')
         return app.response_class(conllu, mimetype='text/plain; charset=utf-8')
@@ -61,7 +74,8 @@ def _v1_spec():
                 'url': 'http://www.apache.org/licenses/LICENSE-2.0.html'
             }
         },
-        'host': 'tensor.westus.cloudapp.azure.com:8888',
+        'host': 'itek-gpu1.eastus.cloudapp.azure.com:8888',
+#'tensor.westus.cloudapp.azure.com:8888',
         'basePath': '/v1',
         'paths': {
             '/parsey-universal-full': {
