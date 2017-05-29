@@ -10,4 +10,7 @@ RUN  pip install flask-swaggerui &&  echo "flask-swaggerui installed"
 
 #COPY /home/elf/workspaces/syntaxnet_wrapper /opt/syntaxnet_wrapper
 ENV PYTHONIOENCODING UTF-8
+
+COPY syntaxnet_wrapper /opt/syntaxnet_wrapper
+RUN cd /opt/syntaxnet_wrapper && python setup.py install
 CMD []
