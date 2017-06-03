@@ -9,6 +9,8 @@ RUN  pip install flask-swaggerui &&  echo "flask-swaggerui installed"
 COPY syntaxnet_wrapper /opt/syntaxnet_wrapper
 RUN cd /opt/syntaxnet_wrapper && python setup.py install
 
+RUN pip install -U flask-cors
+
 CMD []
 
 
