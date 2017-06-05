@@ -69,7 +69,7 @@ import io,json, ast
 
 @app.route('/v1/swagger.json')
 def _v1_spec():
-    with io.open('static/swag1.json', 'r',encoding='utf8') as f: 
+    with io.open('static/swag2.json', 'r',encoding='utf8') as f: 
       data=f.read()
 
     if data:
